@@ -2,6 +2,7 @@
   // Functions
   const createBookItem = (title, description, cover) => {
     const newBook = $sampleBook.cloneNode(true)
+    newBook.removeAttribute('id')
     newBook.querySelector('#book-title').textContent = title
     newBook.querySelector('#book-description').textContent = description
     newBook.querySelector('#book-cover').src = cover
