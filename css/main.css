@@ -15,9 +15,13 @@
   flex-direction: column;
 }
 
+.list-view {
+  width: 80%;
+}
+
 .book {
   height: 20%;
-  width: 80%;
+  width: 100%;
   display: flex;
   margin: 50px auto;
   flex-wrap: wrap;
