@@ -10,20 +10,25 @@
 <body>
   <main>
     <h1>Google Books</h1>
-    <article id="search-box">
-      <div>
-        <label for="search-input">Search for:</label>
-        <input type="text" id="search-input" placeholder="Type book title">
-        <button id="search-button">Search</button>
-      </div>
-    </article>
-    <article id="list-box">
-      <div id="sample-book">
-        <h2 id="book-title">Title</h2>
-        <p id="book-description">Description</p>
-        <img id="book-cover" src="" alt="No image found">
-      </div>
-    </article>
+    <section id="search-view">
+        <article id="search-box">
+          <div>
+            <label for="search-input">Search for:</label>
+            <input type="text" id="search-input" placeholder="Type book title">
+            <button id="search-button">Search</button>
+        </div>
+      </article>
+    </section>
+    <section id="list-view">
+      <button id="goback-button">Search something else</button>
+      <article id="list-box">
+        <div id="sample-book">
+          <h2 id="book-title">Title</h2>
+          <p id="book-description">Description</p>
+          <img id="book-cover" src="" alt="No image found">
+        </div>
+      </article>
+    </section>
   </main>
   <script src="js/main.js"></script>
 </body>

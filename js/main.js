@@ -8,6 +8,11 @@
     newBook.querySelector('#book-cover').alt = 'Book cover: ' + title
     $listBox.appendChild(newBook)
   }
+  const resetBookList = () => {
+    while ($listBox.firstChild) {
+      $listBox.removeChild($listBox.firstChild)
+    }
+  }
   const processApiJSON = books => {
     const infos = books.map(b => {
       const { title, description, imageLinks } = b.volumeInfo
@@ -57,26 +62,28 @@
   const processUrlChange = () => {
     const params = new URLSearchParams(window.location.search)
     const query = params.get('search')
+    resetBookList()
     if (query) {
-      showElement($searchBox, false)
-      showElement($listBox, true)
+      showElement($searchView, false)
+      showElement($listView, true)
       currentQuery = query
       window.addEventListener('scroll', onPageScroll)
       loadBooks(currentQuery, page * booksPerPage, processApiJSON)
     } else {
-      showElement($searchBox, true)
-      showElement($listBox, false)
+      showElement($searchView, true)
+      showElement($listView, false)
       window.removeEventListener('scroll', onPageScroll)
     }
   }
-  // Search box
-  const $searchBox = document.querySelector('#search-box')
-  const $searchInput = $searchBox.querySelector('#search-input')
-  const $searchButton = $searchBox.querySelector('#search-button')
-  // List box
-  const $listBox = document.querySelector('#list-box')
+  // Search view
+  const $searchView = document.querySelector('#search-view')
+  const $searchInput = $searchView.querySelector('#search-input')
+  const $searchButton = $searchView.querySelector('#search-button')
+  // List view
+  const $listView = document.querySelector('#list-view')
+  const $goBackButton = $listView.querySelector('#goback-button')
+  const $listBox = $listView.querySelector('#list-box')
   const $sampleBook = $listBox.querySelector('#sample-book')
-  $listBox.removeChild($sampleBook)
   // Main
   let isLoading = false
   const booksPerPage = 10
@@ -84,6 +91,10 @@
   let currentQuery = ''
   const minimalLoadingOffset = 600
   // Listeners binding
+  $goBackButton.addEventListener('click', () => {
+    window.history.pushState(null, 'Google Search', window.location.href.split('?')[0])
+    processUrlChange()
+  })
   $searchButton.addEventListener('click', () => {
     const query = $searchInput.value.trim().replace(/\s+/g, ' ')
     if (!query.length) return
