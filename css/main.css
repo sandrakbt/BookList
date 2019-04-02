@@ -1,3 +1,41 @@
+.wrapper-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.book {
+  height: 200px;
+  width: 80%;
+  display: flex;
+  margin: 50px auto;
+}
+
+.book-img-wrapper {
+  min-width: 170px;
+}
+
+.book-img  {
+  height: 100%;
+  margin-right: 10px;
+}
+
+.search-input {
+  padding: 10px;
+  width: 40em;
+}
+
+.search-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .hidden {
   display: none;
 }

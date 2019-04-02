@@ -8,24 +8,30 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <main>
-    <h1>Google Books</h1>
+  <main class="wrapper-main">
+    <h1 class="title-main">Google Books</h1>
     <section id="search-view">
-        <article id="search-box">
-          <div>
-            <label for="search-input">Search for:</label>
-            <input type="text" id="search-input" placeholder="Type book title">
+      <article id="search-box">
+        <div class="search-form">
+          <label for="search-input">Search for:</label>
+          <input class="search-input" type="text" id="search-input" placeholder="Type book title">
+          <div class="search-button-wrapper">
             <button id="search-button">Search</button>
+          </div>
         </div>
       </article>
     </section>
-    <section id="list-view">
+    <section class="hidden" id="list-view">
       <button id="goback-button">Search something else</button>
       <article id="list-box">
-        <div id="sample-book">
-          <h2 id="book-title">Title</h2>
-          <p id="book-description">Description</p>
-          <img id="book-cover" src="" alt="No image found">
+        <div class="book" id="sample-book">
+          <div class="book-img-wrapper">
+              <img class="book-img" id="book-cover" src="" alt="No image found">
+          </div>
+          <div class="book-text">
+            <h2 class="book-title" id="book-title">Title</h2>
+            <p class="book-description" id="book-description">Description</p>
+          </div>
         </div>
       </article>
     </section>
