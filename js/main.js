@@ -53,7 +53,8 @@
   }
   const onPageScroll = event => {
     const distanceFromBottom = Math.max(document.body.offsetHeight - (window.pageYOffset + window.innerHeight), 0)
-    if (distanceFromBottom < minimalLoadingOffset) {
+    const percent = distanceFromBottom / document.body.offsetHeight
+    if (percent < minimalLoadingOffset) {
       loadBooks(currentQuery, page * booksPerPage, processApiJSON)
     }
   }
@@ -90,7 +91,7 @@
   const booksPerPage = 10
   let page = 0
   let currentQuery = ''
-  const minimalLoadingOffset = 600
+  const minimalLoadingOffset = 0.25
   // Listeners binding
   $goBackButton.addEventListener('click', () => {
     window.history.pushState(null, 'Google Search', window.location.href.split('?')[0])
